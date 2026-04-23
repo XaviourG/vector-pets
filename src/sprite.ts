@@ -1,5 +1,5 @@
 export const MIN_SPRITE_SIZE = 8;
-export const MAX_SPRITE_SIZE = 18;
+export const MAX_SPRITE_SIZE = 32;
 
 export function hashString(s: string): number {
   let h = 2166136261 >>> 0;

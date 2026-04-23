@@ -8,6 +8,7 @@ ctx.imageSmoothingEnabled = false;
 
 const backdrop = makeBackdrop();
 const pets: Pet[] = [];
+const drawOrder: Pet[] = [];
 let nextId = 0;
 
 const initial = setupUI({
@@ -50,8 +51,10 @@ function frame(now: number): void {
   }
 
   ctx.drawImage(backdrop, 0, 0);
-  pets.sort((a, b) => a.y - b.y);
-  for (const p of pets) drawPet(ctx, p, now);
+  drawOrder.length = pets.length;
+  for (let i = 0; i < pets.length; i++) drawOrder[i] = pets[i]!;
+  drawOrder.sort((a, b) => a.y - b.y);
+  for (const p of drawOrder) drawPet(ctx, p, now);
 
   requestAnimationFrame(frame);
 }
