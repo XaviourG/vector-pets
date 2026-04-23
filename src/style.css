@@ -1,0 +1,129 @@
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #12121a;
+  color: #e6e6ea;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+  gap: 16px;
+  padding: 16px;
+}
+
+#world {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  width: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #1b1b26;
+  border: 1px solid #2a2a3a;
+  border-radius: 4px;
+  display: block;
+  object-fit: contain;
+}
+
+#panel {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #1b1b26;
+  border: 1px solid #2a2a3a;
+  border-radius: 4px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+#panel header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2a2a3a;
+}
+
+#panel h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #a0a0b4;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper button {
+  width: 28px;
+  height: 28px;
+  background: #2a2a3a;
+  border: none;
+  color: #e6e6ea;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.stepper button:hover { background: #35354a; }
+.stepper button:disabled { opacity: 0.35; cursor: not-allowed; }
+
+#count {
+  min-width: 24px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+#pet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.pet-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pet-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.pet-row input {
+  flex: 1;
+  min-width: 0;
+  background: #2a2a3a;
+  border: 1px solid transparent;
+  color: #e6e6ea;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.pet-row input:focus {
+  outline: none;
+  border-color: #4a4a6a;
+}

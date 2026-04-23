@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vector Pets</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="world" width="256" height="192"></canvas>
+      <aside id="panel">
+        <header>
+          <h1>Vector Pets</h1>
+          <div class="stepper">
+            <button id="minus" aria-label="Remove pet">−</button>
+            <span id="count">1</span>
+            <button id="plus" aria-label="Add pet">+</button>
+          </div>
+        </header>
+        <ul id="pet-list"></ul>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
