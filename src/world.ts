@@ -1,13 +1,14 @@
-import { SPRITE_SIZE } from './sprite';
+import { MAX_SPRITE_SIZE } from './sprite';
 
 export const WORLD_W = 256;
 export const WORLD_H = 192;
 export const MARGIN = 4;
 
-export const BOUND_MIN_X = MARGIN;
-export const BOUND_MIN_Y = MARGIN;
-export const BOUND_MAX_X = WORLD_W - SPRITE_SIZE - MARGIN;
-export const BOUND_MAX_Y = WORLD_H - SPRITE_SIZE - MARGIN;
+const MAX_HALF = MAX_SPRITE_SIZE / 2;
+export const BOUND_MIN_X = MARGIN + MAX_HALF;
+export const BOUND_MIN_Y = MARGIN + MAX_HALF;
+export const BOUND_MAX_X = WORLD_W - MARGIN - MAX_HALF;
+export const BOUND_MAX_Y = WORLD_H - MARGIN - MAX_HALF;
 
 function mulberry32(seed: number): () => number {
   let a = seed >>> 0;

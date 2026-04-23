@@ -93,11 +93,22 @@ html, body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   overflow-y: auto;
+  padding-right: 4px;
 }
 
-.pet-row {
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: #23232f;
+  border-radius: 4px;
+  border: 1px solid #2a2a3a;
+}
+
+.pet-header {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -111,7 +122,7 @@ html, body {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-.pet-row input {
+.pet-name {
   flex: 1;
   min-width: 0;
   background: #2a2a3a;
@@ -123,7 +134,61 @@ html, body {
   font-size: 12px;
 }
 
-.pet-row input:focus {
+.pet-name:focus {
   outline: none;
   border-color: #4a4a6a;
+}
+
+.slider-row {
+  display: grid;
+  grid-template-columns: 28px 1fr 28px;
+  align-items: center;
+  gap: 6px;
+}
+
+.slider-label {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #8a8aa0;
+  white-space: pre;
+}
+
+.slider-value {
+  font-size: 11px;
+  text-align: right;
+  color: #a0a0b4;
+  font-variant-numeric: tabular-nums;
+}
+
+.slider-row input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #2a2a3a;
+  border-radius: 2px;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.slider-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #a0a0b4;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.slider-row input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #a0a0b4;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
 }

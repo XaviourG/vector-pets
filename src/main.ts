@@ -1,4 +1,4 @@
-import { createPet, drawPet, Pet, renamePet, updatePets } from './pet';
+import { createPet, drawPet, Pet, renamePet, setAge, setHealth, updatePets } from './pet';
 import { makeBackdrop } from './world';
 import { setupUI } from './ui';
 
@@ -10,20 +10,28 @@ const backdrop = makeBackdrop();
 const pets: Pet[] = [];
 let nextId = 0;
 
-function addPet(name: string): void {
-  pets.push(createPet(String(nextId++), name));
-}
-
 const initial = setupUI({
-  onAdd: (name) => addPet(name),
+  onAdd: (init) => {
+    pets.push(createPet(String(nextId++), init.name, init.age, init.health));
+  },
   onRemove: () => { pets.pop(); },
   onRename: (index, name) => {
     const p = pets[index];
     if (p) renamePet(p, name);
   },
+  onAgeChange: (index, age) => {
+    const p = pets[index];
+    if (p) setAge(p, age);
+  },
+  onHealthChange: (index, health) => {
+    const p = pets[index];
+    if (p) setHealth(p, health);
+  },
 });
 
-for (const name of initial.names) addPet(name);
+for (const init of initial.pets) {
+  pets.push(createPet(String(nextId++), init.name, init.age, init.health));
+}
 
 const FIXED_DT = 1 / 60;
 const MAX_ACCUM = 0.25;
@@ -43,7 +51,7 @@ function frame(now: number): void {
 
   ctx.drawImage(backdrop, 0, 0);
   pets.sort((a, b) => a.y - b.y);
-  for (const p of pets) drawPet(ctx, p);
+  for (const p of pets) drawPet(ctx, p, now);
 
   requestAnimationFrame(frame);
 }
